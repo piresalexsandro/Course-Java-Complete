@@ -44,8 +44,8 @@ public class OrderItem {
         return price * quantity;
     }
     
-    public String toString(){
+/*    public String toString(){
         return " $" + this.price + " Quantity: " + this.quantity + "Subtotal: " + subTotal(this.quantity, this.price);
-    }
+    }*/
 
 }
