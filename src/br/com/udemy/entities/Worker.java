@@ -9,7 +9,7 @@ import br.com.udemy.entities.enuns.WorkerLevel;
 public class Worker {
 	private String name;
 	private double baseSalary;
-	private WorkerLevel level;
+	private WorkerLevel level; // enum
 	
 	// ASSOCIAÇOES / COMPOSIÇAO DE OBJETOS
 	// associaçoes 1:1
