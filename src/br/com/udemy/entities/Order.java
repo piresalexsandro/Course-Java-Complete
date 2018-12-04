@@ -19,7 +19,6 @@ public class Order {
     }
 
     public Order(Date moment, OrderStatus orderStatus, List<OrderItem> orderItem, Client client) {
-        super();
         this.moment = moment;
         this.orderStatus = orderStatus;
         this.itens = orderItem;
