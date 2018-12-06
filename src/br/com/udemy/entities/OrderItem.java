@@ -10,10 +10,11 @@ public class OrderItem {
     public OrderItem(){
     }
 
-    public OrderItem(Integer quantity, double price) {
+    public OrderItem(Integer quantity, double price, String name) {
         super();
         this.quantity = quantity;
         this.price = price;
+        this.productOrder = new ProductOrder(name, price);
     }
 
     public Integer getQuantity() {
@@ -44,8 +45,12 @@ public class OrderItem {
         return price * quantity;
     }
     
-/*    public String toString(){
-        return " $" + this.price + " Quantity: " + this.quantity + "Subtotal: " + subTotal(this.quantity, this.price);
-    }*/
+    public String toString(){
+        return productOrder.getName() 
+        		+ " $" + this.price 
+        		+ " Quantity: " + this.quantity 
+        		+ " Subtotal: " + subTotal(this.quantity, this.price)
+        		+ "\n";
+    }
 
 }

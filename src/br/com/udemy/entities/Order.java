@@ -16,6 +16,7 @@ public class Order {
     private static SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
     
     public Order(){
+    	
     }
 
     public Order(Date moment, OrderStatus orderStatus, List<OrderItem> orderItem, Client client) {
@@ -62,19 +63,20 @@ public class Order {
     }
 
     public String toString() {
-        Date currentData = new Date(System.currentTimeMillis());
         SimpleDateFormat CurrentDataFormated = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-//      Calendar cal = Calendar.getInstance(); //operaçoes com data
+        Date currentData = new Date(System.currentTimeMillis());
+//        String fmt  = currentData.format(CurrentDataFormated);                 //formata a data digitada para o formato declarado SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         StringBuilder sb = new StringBuilder();
+        System.out.println();
+        
         sb.append("ORDER SUMMARY: \n");
         sb.append("Order moment: " + CurrentDataFormated.format(currentData) + "\n");
         sb.append("Order status: " + orderStatus + " \n");
         sb.append("Client: " + client + " \n");
-        sb.append("ORDER ITEMS:" );
+        sb.append("ORDER ITEMS:" + "\n");
         
         for (OrderItem oi : itens) {
-            sb.append(oi.getProductOrder().getName() + "\n");
-            sb.append(itens);
+            sb.append(oi.getProductOrder().getName() + sb.append(itens));
         }
         return sb.toString();
     }

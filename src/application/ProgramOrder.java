@@ -2,6 +2,7 @@ package application;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -18,8 +19,8 @@ import br.com.udemy.entities.enuns.WorkerLevel;
 public class ProgramOrder {
 
     public static void main(String[] args) throws ParseException {
-        Scanner sc = new Scanner(System.in);
-        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+        //Locale.setDefault(Locale.US);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
         System.out.println("Enter cliente data:");
@@ -30,25 +31,36 @@ public class ProgramOrder {
         System.out.print("Birth date (DD/MM/YYYY): ");
         Date birthDay  = sdf.parse(sc.next()); //formata a data digitada para o formato declarado SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
-        System.out.print("Enter order data:");
-        OrderStatus os = OrderStatus.valueOf("PROCESSING");
-        System.out.println("Status: " + os);
-        System.out.println("How many items to this order? ");
-        Integer quantity = sc.nextInt();
+        System.out.println("Enter order data: ");
+        System.out.print("Status: ");
+        OrderStatus os = OrderStatus.valueOf(sc.next());
+        System.out.print("How many items to this order? ");
+        Integer quantityItem = sc.nextInt();
 
-//        Order order = new Order(birthDay, os, orderItem.getOrderItem(), nameClient);
+        Order order = new Order(birthDay, os, new ArrayList<>(), new Client());
         
-        double[] vect = new double[quantity];
-        for(int i=1; i<vect.length; i++){
-            System.out.println("Enter #" + i + "item data:");
+        order.getClient().setName(nameClient);
+        order.getClient().setBirthDate(birthDay);
+        order.getClient().setEmail(email);
+        
+        double[] vect = new double[quantityItem];
+      	for(int i=0; i<vect.length; i++){
+        	int in = 1;
+        	in += i; 
+            System.out.println("Enter #" + in + " item data: ");
             System.out.print("Product name: ");
-            String nameItem = sc.nextLine();
-            System.out.println("Product price: ");
-            double price = sc.nextDouble();
-            System.out.println("Quantity: " + quantity);
+            String nameItem = sc.next();
+            System.out.print("Product price: ");
+            double priceItem = sc.nextDouble();
+            System.out.print("Quantity: ");
+            Integer quantityPerItem = sc.nextInt();
+            
+            OrderItem orderItem = new OrderItem(quantityPerItem, priceItem, nameItem);
+            order.addOrderItem(orderItem);
+            orderItem.subTotal(quantityPerItem, priceItem);
        }
         
-  //      System.out.println(order);
+        System.out.println(order);
     }
 
 }

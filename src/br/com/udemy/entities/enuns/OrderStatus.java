@@ -5,4 +5,15 @@ public enum OrderStatus {
     PROCESSING,
     SHIPPED,
     DELIVERED;
+	/*
+	public static OrderStatus getInstance(String status) {
+
+	       for (OrderStatus os : OrderStatus.values()) {
+	           if (os.getStatus().equalsIgnoreCase(status) || enumSituacao.name().equalsIgnoreCase(codigo)) {
+	               return enumSituacao;
+	           }
+	       }
+
+	       return null;
+	   }	*/
 }

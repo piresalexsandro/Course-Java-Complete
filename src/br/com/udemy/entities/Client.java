@@ -43,4 +43,10 @@ public class Client {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+	public String toString() {
+		return "Client " + this.name + " (" + this.birthDate + ")" + " - " + this.email;
+	}
+    
+    
 }
