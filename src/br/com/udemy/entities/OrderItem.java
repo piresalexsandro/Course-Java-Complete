@@ -46,11 +46,10 @@ public class OrderItem {
     }
     
     public String toString(){
-        return productOrder.getName() 
-        		+ " $" + this.price 
+        return productOrder.getName()
+        		+ (" $" + String.format("%.2f",  this.price)
         		+ " Quantity: " + this.quantity 
-        		+ " Subtotal: " + subTotal(this.quantity, this.price)
-        		+ "\n";
+        		+ " Subtotal: " +  String.format("%.2f", subTotal(this.quantity, this.price)) + "\n");
     }
 
 }

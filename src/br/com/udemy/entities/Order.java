@@ -72,11 +72,12 @@ public class Order {
         sb.append("ORDER SUMMARY: \n");
         sb.append("Order moment: " + CurrentDataFormated.format(currentData) + "\n");
         sb.append("Order status: " + orderStatus + " \n");
-        sb.append("Client: " + client + " \n");
+        sb.append(client + " \n");
+        System.out.println();
         sb.append("ORDER ITEMS:" + "\n");
         
-        for (OrderItem oi : itens) {
-            sb.append(oi.getProductOrder().getName() + sb.append(itens));
+      	for (OrderItem oi : itens) {
+            sb.append(oi);
         }
         return sb.toString();
     }

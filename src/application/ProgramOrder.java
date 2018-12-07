@@ -22,6 +22,7 @@ public class ProgramOrder {
         Scanner sc = new Scanner(System.in).useLocale(Locale.US);
         //Locale.setDefault(Locale.US);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        double totalPrice = 0;
         
         System.out.println("Enter cliente data:");
         System.out.print("Name: ");
@@ -57,10 +58,11 @@ public class ProgramOrder {
             
             OrderItem orderItem = new OrderItem(quantityPerItem, priceItem, nameItem);
             order.addOrderItem(orderItem);
-            orderItem.subTotal(quantityPerItem, priceItem);
-       }
+            totalPrice += orderItem.subTotal(quantityPerItem, priceItem);
+       } 
         
         System.out.println(order);
+        System.out.println("Total Price: " +  String.format("%.2f",totalPrice));
     }
 
 }

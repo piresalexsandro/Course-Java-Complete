@@ -45,7 +45,7 @@ public class Client {
     }
 
 	public String toString() {
-		return "Client " + this.name + " (" + this.birthDate + ")" + " - " + this.email;
+		return "Client: " + this.name + " (" + sdf.format(this.birthDate) + ")" + " - " + this.email;
 	}
     
     
