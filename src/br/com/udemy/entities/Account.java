@@ -3,7 +3,11 @@ package br.com.udemy.entities;
 public class Account {
 	private int number;
 	private String holder;
-	private double balance;
+	protected double balance;
+
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Account(int number, String holder) {
 		this.number = number;
