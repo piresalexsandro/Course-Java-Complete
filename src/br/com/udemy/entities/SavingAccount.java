@@ -21,6 +21,11 @@ public class SavingAccount extends AccountHeritage{
 		this.interestRate = interestRate;
 	}
 	
+	@Override //notação para sobreposição do metodo que existe na superclasse
+	public final void withdraw(double amount){
+		balance -= amount;
+	}
+	
 	public void updateBalance() {
 		balance += balance * interestRate;
 	}

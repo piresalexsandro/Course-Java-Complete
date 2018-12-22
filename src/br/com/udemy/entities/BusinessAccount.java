@@ -31,4 +31,11 @@ public class BusinessAccount extends AccountHeritage{  // extends = herda metodo
 		}
 	}
 	
+	@Override //notação para sobreposição do metodo que existe na superclasse
+	public final void withdraw(double amount){
+		super.withdraw(amount); // metodo da classe account que desconta 5.00
+		balance -= 2.0;
+	}
+	
+	
 }

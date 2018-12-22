@@ -34,8 +34,8 @@ public class AccountHeritage {
 		return balance;
 	}
 
-	public double withdraw(double amount){
-		return balance -= amount;
+	public void withdraw(double amount){
+		balance -= amount + 5.0;
 	}
 	
 	public double deposit(double amount){

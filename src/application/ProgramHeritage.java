@@ -8,8 +8,12 @@ public class ProgramHeritage {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AccountHeritage acc = new AccountHeritage(1809, "Alexsandro", 0.0);
-		BusinessAccount bacc = new BusinessAccount(1002, "Julio", 0.0, 500.0);
+		AccountHeritage acc = new AccountHeritage(1809, "Alexsandro", 1000.0);
+		acc.withdraw(200.0);
+		System.out.println("COM taxa de saque $" + acc.getBalance());
+		
+		BusinessAccount bacc = new BusinessAccount(1002, "Julio", 1000.0, 500.0);
+		
 		
 		//======================= UPCASTING =======================//
 		//Todos os metodos da classe pai e os da classe filho
@@ -17,10 +21,14 @@ public class ProgramHeritage {
 		AccountHeritage acc1 = bacc; 
 		
 		//BusinessAccount e uma subclasse de AccountHeritage
-		AccountHeritage acc2 = new BusinessAccount(1203, "Joao", 0.0, 2000.0);
+		AccountHeritage acc2 = new BusinessAccount(1203, "Joao", 5000.0, 2000.0);
+		acc2.withdraw(300.0); // desconta 5.00 da Accout e mais 3.00 da classe Business
+		System.out.println("COM 2 taxas de saque $" + acc2.getBalance());
 		
 		//SavingAccount e uma subclasse de AccountHeritage
-		AccountHeritage acc3 = new SavingAccount(1910, "Giulia", 0.0, 0.01);
+		AccountHeritage acc3 = new SavingAccount(1910, "Giulia", 1000.0, 0.01);
+		acc3.withdraw(200.0); // @Override
+		System.out.println("SEM taxa de saque $" + acc3.getBalance());
 		
 		//======================= UPCASTING =======================//
 		//BusinessAccount acc4 = acc2; //acc2 e do tipo AccountHeritage
