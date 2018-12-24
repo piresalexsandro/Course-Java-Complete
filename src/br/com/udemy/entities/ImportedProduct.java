@@ -22,7 +22,8 @@ public class ImportedProduct extends ProductPolimorfism{
 	}
 	
 	public void totalPrice(double price) {
-		price += price + customFree;
+		super.price = price + customFree;
+		
 	}
 
 	@Override

@@ -1,9 +1,11 @@
 package br.com.udemy.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UsedProduct extends ProductPolimorfism{
 
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private Date manufacturedDate;
 	
 	public UsedProduct() {
@@ -28,7 +30,8 @@ public class UsedProduct extends ProductPolimorfism{
 	
 	@Override
 	public String priceTag() {
-		return super.getName() + " (used) " + super.getPrice() + " (Manufacture date: "  + this.manufacturedDate + ")";
+		//this.setManufacturedDate(manufacturedDate);
+		return super.getName() + " (used) " + super.getPrice() + " (Manufacture date: " + sdf.format(this.manufacturedDate) + ")";
 	}	
 	
 }

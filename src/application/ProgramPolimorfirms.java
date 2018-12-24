@@ -38,9 +38,8 @@ public class ProgramPolimorfirms {
 			} else {
 				if (type == 'u') {
 					System.out.print("Manufacture date (DD/MM/YYYY): ");
-					Date manufacturedDate  = sdf.parse(sc.next()); //formata a data digitada para o formato declarado SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-					String fmt  = sdf.format(manufacturedDate);
-					list.add(new UsedProduct(name, price, manufacturedDate));
+					Date data  = sdf.parse(sc.next()); //formata a data digitada para o formato declarado SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					list.add(new UsedProduct(name, price, data));
 				}else {
 					if (type == 'i') {
 						System.out.print("Customs fee: ");
